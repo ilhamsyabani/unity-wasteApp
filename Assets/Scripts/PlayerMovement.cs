@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movement;
     private Rigidbody2D rb;
     private Animator animator;
+    public Joystick joystick; // Reference to your joystick UI element
 
     private void Awake()
     {
@@ -18,34 +19,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        // Handle touch input
-        if (Touchscreen.current != null && Touchscreen.current.primaryTouch != null)
+        // Handle joystick controls
+        if (joystick != null)
         {
-            HandleTouchInput();
+            movement = new Vector2(joystick.Horizontal, joystick.Vertical);
         }
         else
         {
-            // Handle keyboard controls
+            // Fallback to keyboard controls if joystick is not assigned
             movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-            HandleMovementInput();
         }
-    }
 
-private Vector2 smoothedTouchDelta = Vector2.zero;
-
-private void HandleTouchInput()
-{
-    Vector2 touchDelta = Touchscreen.current.primaryTouch.delta.ReadValue();
-    smoothedTouchDelta = Vector2.Lerp(smoothedTouchDelta, touchDelta, 0.5f); // Menggunakan interpolasi linier untuk smoothing
-    movement = smoothedTouchDelta.normalized;
-    HandleMovementInput();
-}
-    private void HandleMovementInput()
-    {
-        if (movement.magnitude > 0)
+        if (movement.x != 0 || movement.y != 0)
         {
             animator.SetFloat("Horizontal", movement.x);
             animator.SetFloat("Vertical", movement.y);
+
             animator.SetBool("IsWalking", true);
         }
         else
@@ -56,6 +45,20 @@ private void HandleTouchInput()
 
     private void FixedUpdate()
     {
-        rb.velocity = movement * MoveSpeed;
+        rb.MovePosition(rb.position + movement * MoveSpeed * Time.fixedDeltaTime);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Check if the collision involves the object you want to interact with.
+        if (collision.gameObject.CompareTag("Sampah"))
+        {
+            // Perform your interaction logic here.
+            Debug.Log("Player hit the interactable object!");
+            
+            // You can access the collided object using 'collision.gameObject'.
+            // For example, you could deactivate it:
+            // collision.gameObject.SetActive(false);
+        }
     }
 }

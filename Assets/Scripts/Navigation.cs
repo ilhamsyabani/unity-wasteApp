@@ -15,4 +15,12 @@ public class Navigation : MonoBehaviour
     {
         SceneManager.LoadScene("game 2");
     }
+
+    public string urlToOpen = "https://www.instagram.com/ar/809761637287341/";
+
+    
+    public void OpenURL()
+    {
+        Application.OpenURL(urlToOpen);
+    }
 }
