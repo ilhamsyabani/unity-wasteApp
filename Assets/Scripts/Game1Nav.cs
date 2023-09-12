@@ -8,6 +8,8 @@ public class Game1Nav : MonoBehaviour
 {
     public GameObject misi1, misi2, misi3, materi1, materi2, materi3, materi4, materi5, materi6, truck;
     private PlayerMovement playerMovement;
+    public AudioClip audioClip; // Reference to the audio clip you want to play
+    private AudioSource audioSource;
     private int nilai;
 
 
@@ -24,6 +26,16 @@ public class Game1Nav : MonoBehaviour
         {
             Debug.LogError("Player GameObject not found!");
         }
+
+        // Add an AudioSource component to the GameObject if it doesn't exist
+        audioSource = gameObject.GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        // Assign the audio clip to the AudioSource
+        audioSource.clip = audioClip;
     }
 
     void Update()
@@ -41,12 +53,14 @@ public class Game1Nav : MonoBehaviour
             {
                 Debug.LogError("Player GameObject not found!");
             }
-        } 
+        }
 
-        if(nilai == 6){
+        if (nilai == 6)
+        {
             playerMovement.MoveSpeed = 0f;
             misi2.SetActive(true);
             truck.SetActive(true);
+            audioSource.Play();
         }
     }
 
@@ -71,7 +85,7 @@ public class Game1Nav : MonoBehaviour
     public void tutupMisi2()
     {
         Destroy(misi2);
-        nilai = 0 ;
+        nilai = 0;
         jalan();
     }
     public void tutupMisi3()

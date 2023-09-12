@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
+
 public class Navigation : MonoBehaviour
 {
     public void bukaGame1()
@@ -16,7 +17,7 @@ public class Navigation : MonoBehaviour
         SceneManager.LoadScene("game 2");
     }
 
-    public string urlToOpen = "https://www.instagram.com/ar/809761637287341/";
+    private string urlToOpen = "https://www.instagram.com/ar/809761637287341/";
 
     
     public void OpenURL()

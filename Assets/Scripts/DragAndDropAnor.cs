@@ -5,15 +5,21 @@ using UnityEngine;
 public class DragAndDropAnor : MonoBehaviour
 {
     public GameObject correctForm;
+    public GameObject rewards;
     private bool moving;
     private float startPosX;
     private float startPosY;
     private Vector3 resetPosition;
+
+    public ScoringSystem scoringSystem;
+
     private int nilai;
 
     void Start()
     {
         resetPosition = this.transform.localPosition;
+
+
     }
 
     void Update()
@@ -26,8 +32,7 @@ public class DragAndDropAnor : MonoBehaviour
 
             this.transform.localPosition = new Vector3(mousePos.x - startPosX, mousePos.y - startPosY, this.transform.localPosition.z);
         }
-
-        Debug.Log(nilai);
+        
     }
 
     private void OnMouseDown()
@@ -54,8 +59,10 @@ public class DragAndDropAnor : MonoBehaviour
         if (distanceToCorrectForm <= 0.5f)
         {
             this.transform.localPosition = new Vector3(correctForm.transform.localPosition.x, correctForm.transform.localPosition.y, correctForm.transform.localPosition.z);
+
+            scoringSystem.IncrementScore();
+
             Destroy(gameObject);
-            nilai += 1;
         }
         else
         {

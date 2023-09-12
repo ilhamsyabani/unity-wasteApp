@@ -1115,6 +1115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materi: {fileID: 1659554503}
+  audioClip: {fileID: 8300000, guid: 0f2c81484e44e48a49d7cfcede4a5cba, type: 3}
 --- !u!1 &248171358
 GameObject:
   m_ObjectHideFlags: 0
@@ -1673,6 +1674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materi: {fileID: 23547991}
+  audioClip: {fileID: 8300000, guid: 0f2c81484e44e48a49d7cfcede4a5cba, type: 3}
 --- !u!1 &349316975
 GameObject:
   m_ObjectHideFlags: 0
@@ -8933,6 +8935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materi: {fileID: 1025650265}
+  audioClip: {fileID: 8300000, guid: 0f2c81484e44e48a49d7cfcede4a5cba, type: 3}
 --- !u!1 &415201162
 GameObject:
   m_ObjectHideFlags: 0
@@ -13896,6 +13899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materi: {fileID: 2142343038}
+  audioClip: {fileID: 8300000, guid: 0f2c81484e44e48a49d7cfcede4a5cba, type: 3}
 --- !u!1 &595709926
 GameObject:
   m_ObjectHideFlags: 0
@@ -22500,6 +22504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materi: {fileID: 430840869}
+  audioClip: {fileID: 8300000, guid: 0f2c81484e44e48a49d7cfcede4a5cba, type: 3}
 --- !u!1 &1217052446
 GameObject:
   m_ObjectHideFlags: 0
@@ -22718,6 +22723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materi: {fileID: 1686291521}
+  audioClip: {fileID: 8300000, guid: 0f2c81484e44e48a49d7cfcede4a5cba, type: 3}
 --- !u!1 &1232893240
 GameObject:
   m_ObjectHideFlags: 0
@@ -29996,6 +30002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materi: {fileID: 1066539123}
+  audioClip: {fileID: 0}
 --- !u!61 &1365002100
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -74209,6 +74216,7 @@ MonoBehaviour:
   materi5: {fileID: 23547991}
   materi6: {fileID: 1025650265}
   truck: {fileID: 1365002096}
+  audioClip: {fileID: 8300000, guid: 0f2c81484e44e48a49d7cfcede4a5cba, type: 3}
 --- !u!114 &1955044734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74221,6 +74229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a987156047544032abf36f4d560a9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  urlToOpen: https://www.instagram.com/ar/809761637287341/
 --- !u!1 &1957318749
 GameObject:
   m_ObjectHideFlags: 0

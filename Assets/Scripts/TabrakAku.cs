@@ -6,11 +6,22 @@ public class TabrakAku : MonoBehaviour
 {
     private Rigidbody2D rb;
     public GameObject materi;
+    public AudioClip audioClip; // Reference to the audio clip you want to play
+    private AudioSource audioSource;
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        audioSource = gameObject.GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        // Assign the audio clip to the AudioSource
+        audioSource.clip = audioClip;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -22,6 +33,7 @@ public class TabrakAku : MonoBehaviour
 
             Debug.Log("Player hit the interactable object!");
             Destroy(gameObject);
+            audioSource.Play();
             materi.SetActive(true);
 
             PlayerMovement playerMovement = collision.gameObject.GetComponent<PlayerMovement>();
